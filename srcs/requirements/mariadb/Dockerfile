@@ -16,6 +16,4 @@ COPY tools/setup.sh /tmp
 RUN chmod +x /tmp/setup.sh && \
     /tmp/setup.sh
 
-# ENTRYPOINT ["/tmp/setup.sh"]
-
 CMD ["mysqld_safe"]
