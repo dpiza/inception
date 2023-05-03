@@ -3,10 +3,10 @@ DATA	=	/home/dpiza/data
 all: up
 
 up:
-	mkdir -p ${DATA}/wp ${DATA}/db
+	sudo mkdir -p ${DATA}/wp ${DATA}/db
 	docker-compose -f srcs/docker-compose.yml up --build -d
-	grep -qxF '127.0.0.1 dpiza.42.fr' /etc/hosts || \
-	echo '127.0.0.1 dpiza.42.fr' >> /etc/hosts
+	grep -qxF "127.0.0.1 dpiza.42.fr" /etc/hosts || \
+	sudo echo "127.0.0.1 dpiza.42.fr" >> /etc/hosts
 
 down:
 	docker-compose -f srcs/docker-compose.yml down
