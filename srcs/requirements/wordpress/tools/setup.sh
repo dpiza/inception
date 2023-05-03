@@ -3,10 +3,10 @@
 if ! wp core is-installed --path=/var/www/wordpress; then
 
     wp core config \
-        --dbname=${MARIADB_DATABASE} \
-        --dbuser=${MARIADB_USER} \
-        --dbpass=${MARIADB_PASSWORD} \
-        --dbhost=${MARIADB_ROOT_HOST} \
+        --dbname=${WP_DB_NAME} \
+        --dbuser=${WP_DB_USER} \
+        --dbpass=${WP_DB_PASSWORD} \
+        --dbhost=${DATABASE_HOST} \
         --dbprefix='wp_' \
         --dbcharset="utf8"
 
@@ -17,6 +17,8 @@ if ! wp core is-installed --path=/var/www/wordpress; then
         --admin_password=${WP_ADMIN_PWD} \
         --admin_email=${WP_ADMIN_EMAIL} \
         --skip-email
+    
+	wp option update --path=/var/www/wordpress blogdescription "${WP_SUB_TITLE}"
 
     wp user create ${WP_USR} ${WP_EMAIL} --user_pass=${WP_PWD} --role=subscriber
 
