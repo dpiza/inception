@@ -1,4 +1,4 @@
-DATA	=	/home/${USER}/data
+DATA	=	/home/dpiza/data
 
 all: up
 
