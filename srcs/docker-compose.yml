@@ -46,6 +46,8 @@ services:
     container_name: nginx
     build:
       context: requirements/nginx
+      args:
+        - DOMAIN_NAME
     volumes:
       - wp-data:/var/www/wordpress
     ports:
