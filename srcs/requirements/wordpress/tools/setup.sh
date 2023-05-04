@@ -22,6 +22,8 @@ if ! wp core is-installed --path=/var/www/wordpress; then
 
     wp user create ${WP_USR} ${WP_EMAIL} --user_pass=${WP_PWD} --role=subscriber
 
+    wp theme activate twentytwentytwo
+
 fi
 
 exec "$@"
