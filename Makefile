@@ -5,6 +5,7 @@ all: up
 up:
 	sudo mkdir -p ${DATA}/wp ${DATA}/db
 	docker-compose -f srcs/docker-compose.yml up --build -d
+	sudo chmod a+w /etc/hosts
 	grep -qxF "127.0.0.1 dpiza.42.fr" /etc/hosts || \
 	sudo echo "127.0.0.1 dpiza.42.fr" >> /etc/hosts
 
